@@ -1,0 +1,22 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows", "debian-openssl-3.0.x"]
+}
+
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Measure {
+  id              String   @id @default(uuid())  // Identificador único, gerado como UUID
+  measure_uuid    String   @unique              // UUID único para a medição, se aplicável
+  customer_code   String   // Código do cliente
+  measure_datetime DateTime // Data e hora da medição
+  measure_type    String   // Tipo de medição (WATER ou GAS)
+  measure_value   Int      // Valor da medição
+  image_url       String   // URL da imagem associada
+  has_confirmed   Boolean  @default(false)       // Se a medição foi confirmada
+  confirmed_value Int?    // Valor confirmado, opcional
+}
