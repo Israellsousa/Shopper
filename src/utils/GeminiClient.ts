@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Substitua pelos valores reais
 const GEMINI_API_URL = 'https://api.gemini.com'; // URL EX
-const GEMINI_API_KEY = 'AIzaSyAepMC7gDX58fsEZKc7tIuXRfRhBHQRY1A';
+const GEMINI_API_KEY = 'sua chave';
 
 interface GeminiResponse {
   image_url: string;
